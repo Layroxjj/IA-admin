@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panneau Admin</title>
+</head>
+<body>
+    <h1>Répondre aux messages</h1>
+
+    <p id="question"></p>
+
+    <input id="reponse" placeholder="Ta réponse">
+    <button onclick="repondre()">Envoyer</button>
+
+    <script>
+        setInterval(() => {
+            document.getElementById("question").innerHTML =
+                "<b>Message :</b> " +
+                (localStorage.getItem("question") || "");
+        }, 500);
+
+        function repondre() {
+            localStorage.setItem(
+                "reponse",
+                document.getElementById("reponse").value
+            );
+        }
+    </script>
+</body>
+</html>
